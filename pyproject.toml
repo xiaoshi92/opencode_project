@@ -1,0 +1,17 @@
+[project]
+name = "qdrant-hybrid-search"
+version = "1.0.0"
+description = "Qdrant Hybrid Search & Semantic Chunking MCP Server"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "qdrant-client>=1.11.0",
+    "fastembed>=0.3.0",
+    "rich>=13.0.0",
+    "numpy>=1.24.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
