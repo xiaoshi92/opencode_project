@@ -65,5 +65,24 @@ def hybrid_search(query: str, limit: int = 5) -> str:
     res = controller.hybrid_search(query, limit)
     return json.dumps(res, indent=2)
 
+@mcp.tool()
+def web_search(query: str, max_results: int = 5) -> str:
+    """
+    Searches the live internet using DuckDuckGo and returns the top snippets and links.
+    
+    Args:
+        query: The search terms to look up on the web.
+        max_results: The maximum number of search results to return.
+    """
+    from duckduckgo_search import DDGS
+    import json
+    
+    try:
+        with DDGS() as ddgs:
+            results = list(ddgs.text(query, max_results=max_results))
+            return json.dumps(results, indent=2)
+    except Exception as e:
+        return f"Error executing web search: {str(e)}"
+
 if __name__ == "__main__":
     mcp.run()
