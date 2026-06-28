@@ -1,0 +1,6 @@
+.venv/
+qdrant-server/
+.qdrant-initialized
+storage/
+__pycache__/
+*.log
